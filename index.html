@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cálculo de Café</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			text-align: center;
+		}
+
+        .coffee-button {
+          font-size: 1rem;
+          font-weight: bold;
+          color: #ffffff;
+           background-color: #2c3e50;
+           padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+          transition: background-color 0.2s ease-in-out;
+}
+
+          .coffee-button:active {
+         background-image: linear-gradient(180deg, #2c3e50, #a67b5b, #ffcc66, #f0ebeb);
+           background-size: 400% 400%;
+          animation: gradient 4s ease infinite;
+}
+
+         @keyframes gradient {
+         0% {
+          background-position: 0% 50%;
+  }
+          50% {
+          background-position: 100% 50%;
+  }
+         100% {
+          background-position: 0% 50%;
+  }
+}
+
+
+		input, button {
+
+             font-size: 1rem;
+             font-weight: bold;
+             color: #ffffff;
+             background-color: #d6d6d6;
+             padding: 10px 20px;
+             border: none;
+             border-radius: 5px;
+             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+             transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #424242;
+  cursor: pointer;
+       
+			font-size: 18px;
+			padding: 5px;
+			margin: 10px;
+		}
+
+		h1 {
+			margin-top: 50px;
+		}
+
+		p {
+			margin-top: 30px;
+			font-size: 18px;
+		}
+
+		#resultado {
+			font-size: 24px;
+			font-weight: bold;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Cálculo de Café</h1>
+	<p>Insira o número de xícaras que deseja fazer:</p>
+	<input type="number" id="num-xicaras" min="1">
+	<button onclick="calcular()" class="coffee-button" >Calcular</button>
+	<p id="resultado"></p>
+
+	<script>
+		function calcular() {
+			var numXicaras = document.getElementById("num-xicaras").value;
+			var agua = numXicaras * 0.25; // 1 copo de água tem 250ml (ou 0.25 litros)
+			var cafe = numXicaras * 1; // 1 colher de café por xícara
+
+			var resultado = "Para " + numXicaras + " xícara(s) de café, será necessário:";
+			resultado += "<br>" + agua + " copo(s) de água";
+			resultado += "<br>" + cafe + " colher(es) de café";
+
+			document.getElementById("resultado").innerHTML = resultado;
+		}
+	</script>
+</body>
+</html>
